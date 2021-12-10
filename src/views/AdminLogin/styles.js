@@ -3,9 +3,19 @@ import { Colors } from "../../styles/Global";
 
 const FormContainer = styled.form`
     margin-top: 53px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+`;
+
+const AdminLoginContainer = styled.div`
     width: 490px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (max-width: 550px) {
+        width: 90%;
+    }
 `;
 
 const ForgotPassword = styled.p`
@@ -17,4 +27,4 @@ const ForgotPassword = styled.p`
     color: ${Colors.Gray_2};
 `;
 
-export { FormContainer, ForgotPassword };
+export { FormContainer, ForgotPassword, AdminLoginContainer };

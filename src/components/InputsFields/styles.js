@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Colors } from "../../styles/Global";
 
 const InputContainer = styled.div`
-    width: 490px;
-    margin: 0px auto;
+    width: 100%;
     display: flex;
+    margin: 0 auto;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
 `;
 
@@ -24,6 +24,11 @@ const Input = styled.input`
     border-radius: 4px;
     padding: 12px;
     padding-right: 40px;
+    color: ${Colors.C_2};
+    font-weight: 400;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
     ::placeholder {
         color: ${Colors.Gray_5};
         font-weight: 400;
@@ -36,7 +41,7 @@ const Icon = styled.i`
     cursor: pointer;
     position: absolute;
     right: 10px;
-    top: 36px;
+    top: 40px;
     background-color: ${Colors.White_1};
 `;
 

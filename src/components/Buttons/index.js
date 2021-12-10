@@ -4,7 +4,7 @@ import { Colors } from '../../styles/Global';
 
 const Buttons = ({ buttonText, active }) => {
 
-    const Button = styled.button`
+    const Button = styled.input`
         opacity: ${!active ? 0.7 : 1};
         width: 100%;
         text-align: center;
@@ -22,7 +22,7 @@ const Buttons = ({ buttonText, active }) => {
     `;
 
     return (
-        <Button>{buttonText}</Button>
+        <Button type="submit" value={buttonText}/>
     )
 };
 

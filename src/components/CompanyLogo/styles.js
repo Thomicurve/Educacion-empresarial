@@ -5,8 +5,7 @@ const LogoContainer = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    gap: 10px;
+    margin-top: 50px;
 `;
 
 const Title = styled.h1`
@@ -14,6 +13,7 @@ const Title = styled.h1`
     color: ${Colors.C_2};
     line-height: 16px;
     font-size: 16px;
+    margin-left: 10px;
 `;
 
 
