@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styles/Global';
 
-const Buttons = ({ buttonText, active }) => {
-
-    const Button = styled.input`
-        opacity: ${!active ? 0.7 : 1};
+const Button = styled.input`
+        opacity: ${props => !props.active ? 0.5 : 1};
         width: 100%;
         text-align: center;
         background-color: ${Colors.C_2};
@@ -19,10 +17,12 @@ const Buttons = ({ buttonText, active }) => {
         padding: 8px 0px;
         cursor: pointer;
         margin-top: 30px;
-    `;
+`;
+
+const Buttons = ({ buttonText, active }) => {
 
     return (
-        <Button type="submit" value={buttonText}/>
+        <Button active={active} type="submit" value={buttonText}/>
     )
 };
 

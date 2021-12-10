@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../../styles/Global";
 
-const FormContainer = styled.form`
-    margin-top: 53px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-`;
 
 const AdminLoginContainer = styled.div`
     width: 490px;
@@ -27,4 +21,4 @@ const ForgotPassword = styled.p`
     color: ${Colors.Gray_2};
 `;
 
-export { FormContainer, ForgotPassword, AdminLoginContainer };
+export { ForgotPassword, AdminLoginContainer };

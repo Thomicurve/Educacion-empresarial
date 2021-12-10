@@ -13,7 +13,7 @@ const App = () => {
         <Router>
             <GlobalStyle/>
             <Routes>
-                <Route path="/login" element={<AdminLogin/>} />
+                <Route path="/recuperar-contrasena" element={<ForgotPassword/>} />
                 <Route path="/" element={<AdminLogin/>} />
             </Routes>
         </Router>

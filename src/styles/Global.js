@@ -11,8 +11,10 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Colors = {
     C_2: '#503E9D',
+    C_10: '#FE6D73',
     Gray_1: '#595959',
     Gray_2: '#828282',
+    Gray_3: '#37374A',
     Gray_5: '#CCCCCC',
     White_1: '#F2F2F2'
 };

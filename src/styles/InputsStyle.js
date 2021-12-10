@@ -1,13 +1,20 @@
 import styled from "styled-components";
-import { Colors } from "../../styles/Global";
+import { Colors } from "./Global";
 
 const InputContainer = styled.div`
     width: 100%;
     display: flex;
     margin: 0 auto;
     flex-direction: column;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     position: relative;
+`;
+
+const FormContainer = styled.form`
+    margin-top: 53px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 `;
 
 const Label = styled.label`
@@ -37,6 +44,14 @@ const Input = styled.input`
     }
 `;
 
+const Errors = styled.div`
+    color: ${Colors.C_10};
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    margin-bottom: 10px;
+`;
+
 const Icon = styled.i`
     cursor: pointer;
     position: absolute;
@@ -45,4 +60,4 @@ const Icon = styled.i`
     background-color: ${Colors.White_1};
 `;
 
-export { InputContainer, Label, Input, Icon };
+export { InputContainer, Label, Input, Icon, Errors, FormContainer };
