@@ -11,7 +11,7 @@ const InputContainer = styled.div`
 `;
 
 const FormContainer = styled.form`
-    margin-top: 53px;
+    margin-top: 30px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;

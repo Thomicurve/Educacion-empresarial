@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Errors, FormContainer } from '../../styles/InputsStyle';
 import { ForgotContainer, Description, GoBackButtonContainer, GoBackButtonText, GoBackIcon } from './style';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 
@@ -20,46 +20,41 @@ const ForgotPassSchema = Yup.object().shape({
 })
 
 const ForgotPassword = () => {
-    const [buttonVisible, setButtonVisible] = useState(false);
+
+    const forgotPassFormik = useFormik({
+        initialValues: {
+            email: '',
+        },
+        validationSchema: ForgotPassSchema,
+
+        onSubmit: (formData) => {
+            console.log(formData);
+        }
+
+    })
 
     return (
         <ForgotContainer>
             <CompanyLogo />
             <GoBackButtonContainer>
                 <Link to='/'><GoBackButtonText><GoBackIcon src={ArrowIcon} alt='Arrow icon' />Regresar</GoBackButtonText></Link>
-            </GoBackButtonContainer> 
+            </GoBackButtonContainer>
             <LoginTitles titleText={"Recuperar contraseña"} />
-            <Description>Ingresa tu correo electrónico para poder <br/> recuperar tu contraseña.</Description>
-            <Formik
-                initialValues={{
-                    email: ''
-                }}
-
-                validationSchema={ForgotPassSchema}
-
-                onSubmit={(values, props) => {
-                    props.resetForm();
-                    console.log(values);
-                }}
-            >
-                {({ values, handleSubmit, handleChange, handleBlur, errors }) => (
-                    <FormContainer onSubmit={handleSubmit}>
-                        <EmailInput
-                            handleChange={handleChange}
-                            inputPlaceHolder="mail@mail.com"
-                            inputTitle={"Correo electrónico"}
-                            onBlur={handleBlur}
-                            inputID={"email"}
-                            InputValues={values.email} />
-                        {errors.email && <Errors>{errors.email}</Errors>}
-                        {!errors.email && 
-                        values.email.length > 0 ?
-                        setButtonVisible(true) : setButtonVisible(false)}
-                        <Buttons buttonText="Recuperar contraseña" active={buttonVisible} />
-                    </FormContainer>
-                )}
-
-            </Formik>
+            <Description>Ingresa tu correo electrónico para poder <br /> recuperar tu contraseña.</Description>
+            <FormContainer onSubmit={forgotPassFormik.handleSubmit}>
+                <EmailInput
+                    handleChange={forgotPassFormik.handleChange}
+                    inputPlaceHolder="mail@mail.com"
+                    inputTitle={"Correo electrónico"}
+                    inputID={"email"}
+                    InputValues={forgotPassFormik.values.email} />
+                {forgotPassFormik.errors.email && <Errors>{forgotPassFormik.errors.email}</Errors>}
+                {!forgotPassFormik.errors.email &&
+                    forgotPassFormik.values.email.length > 0 ?
+                    <Buttons buttonText="Recuperar contraseña" active={true} /> : 
+                    <Buttons buttonText="Recuperar contraseña" active={false} />}
+                
+            </FormContainer>
             <BottomLogos />
         </ForgotContainer>
     )
