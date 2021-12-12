@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useNavigate  } from 'react-router-dom';
 import { ForgotPassword, AdminLoginContainer } from './styles';
-import { Errors, FormContainer } from '../../styles/InputsStyle';
+import { Errors, FormContainer, ButtonErrors } from '../../styles/InputsStyle';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
+// Auth
+import AuthContext from '../../context/AuthContext';
+import useCookies from '../../hooks/useCookies';
+import useRoutesAuth from '../../hooks/useRoutesAuth';
 
 // Components
 import CompanyLogo from '../../components/CompanyLogo';
@@ -13,12 +18,42 @@ import PasswordInput from '../../components/PasswordInput';
 import Buttons from '../../components/Buttons';
 import BottomLogos from '../../components/BottomLogos';
 
+// Services
+import { Login } from '../../services/Admin';
+
+// FORM SCHEMA
 const LoginAdminSchema = Yup.object().shape({
     email: Yup.string().email('El correo electrónico especificado no está en un formato válido.').required('Campo requerido'),
     password: Yup.string().required('Campo requerido')
 })
 
 const AdminLogin = () => {
+    const [loginError, setLoginError] = useState({error: false, message: ''});
+
+    // Context
+    const { setCookie } = useCookies()
+    const { setToken } = useContext(AuthContext); 
+    const navigate = useNavigate();
+    const { mustBeUnlogged } = useRoutesAuth('/inicio');
+
+    useEffect(() => {
+        mustBeUnlogged();
+    }, [])
+
+
+    // FORM
+    const handleSubmit = async ({email, password}) => {
+        const result = await Login(email, password);
+
+        if(!result) return setLoginError({error: true, message: 'La dirección de correo electrónico o contraseña que has introducido no son correctas'});
+
+        else {
+            setLoginError({error: false, message: ''});
+            setCookie('userID', '2');
+            setToken('2');
+            navigate('/inicio');
+        } 
+    }
 
     const adminLoginFormik = useFormik({
         initialValues: {
@@ -26,11 +61,9 @@ const AdminLogin = () => {
             password: ''
         },
         validationSchema: LoginAdminSchema,
-
         onSubmit: (formData) => {
-            console.log(formData);
+            handleSubmit(formData);
         }
-
     })
 
     return (
@@ -64,6 +97,7 @@ const AdminLogin = () => {
                     adminLoginFormik.values.password.length > 0 ?
                     <Buttons buttonText="Iniciar sesión" active={true} /> :
                     <Buttons buttonText="Iniciar sesión" active={false} />}
+                { loginError.error && <ButtonErrors>{loginError.message}</ButtonErrors> }
             </FormContainer>
             <BottomLogos />
         </AdminLoginContainer>

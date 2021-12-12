@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Errors, FormContainer } from '../../styles/InputsStyle';
+import { ButtonErrors, Errors, FormContainer } from '../../styles/InputsStyle';
 import { ForgotContainer, Description, GoBackButtonContainer, GoBackButtonText, GoBackIcon } from './style';
 import { useFormik } from 'formik';
 import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
+
+// Services
+import { SendEmail } from '../../services/Admin';
 
 // Assets
 import ArrowIcon from '../../assets/arrowIcon.svg';
@@ -20,6 +23,13 @@ const ForgotPassSchema = Yup.object().shape({
 })
 
 const ForgotPassword = () => {
+    const [emailError, setEmailError] = useState({error: false, message: ''});
+
+    const handleSubmit = async ({email}) => {
+        const result = await SendEmail(email);
+        if(!result) setEmailError({error: true, message:'La dirección de correo electrónico que has introducido no es válida'});
+        else setEmailError({error: false, message: ''});
+    }
 
     const forgotPassFormik = useFormik({
         initialValues: {
@@ -28,7 +38,7 @@ const ForgotPassword = () => {
         validationSchema: ForgotPassSchema,
 
         onSubmit: (formData) => {
-            console.log(formData);
+            handleSubmit(formData);
         }
 
     })
@@ -53,7 +63,7 @@ const ForgotPassword = () => {
                     forgotPassFormik.values.email.length > 0 ?
                     <Buttons buttonText="Recuperar contraseña" active={true} /> : 
                     <Buttons buttonText="Recuperar contraseña" active={false} />}
-                
+                { emailError.error && <ButtonErrors>{emailError.message}</ButtonErrors> }
             </FormContainer>
             <BottomLogos />
         </ForgotContainer>

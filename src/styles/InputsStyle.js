@@ -17,6 +17,14 @@ const FormContainer = styled.form`
     margin-right: auto;
 `;
 
+const ButtonErrors = styled.p`
+    color: ${Colors.C_10};
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14.52px;
+    margin-top: 20px;
+`;
+
 const Label = styled.label`
     color: ${Colors.Gray_1};
     font-size: 16px;
@@ -60,4 +68,4 @@ const Icon = styled.i`
     background-color: ${Colors.White_1};
 `;
 
-export { InputContainer, Label, Input, Icon, Errors, FormContainer };
+export { InputContainer, Label, Input, Icon, Errors, FormContainer, ButtonErrors };
