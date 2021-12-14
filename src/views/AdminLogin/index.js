@@ -34,10 +34,10 @@ const AdminLogin = () => {
     const { setCookie } = useCookies()
     const { setToken } = useContext(AuthContext); 
     const navigate = useNavigate();
-    const { mustBeUnlogged } = useRoutesAuth('/inicio');
+    const { isLogged } = useRoutesAuth('/home/users');
 
     useEffect(() => {
-        mustBeUnlogged();
+        isLogged();
     }, [])
 
 
@@ -51,7 +51,7 @@ const AdminLogin = () => {
             setLoginError({error: false, message: ''});
             setCookie('userID', '2');
             setToken('2');
-            navigate('/inicio');
+            navigate('/home/users');
         } 
     }
 
@@ -89,7 +89,7 @@ const AdminLogin = () => {
                     hasEye={true}
                 />
                 {adminLoginFormik.errors.password && <Errors>{adminLoginFormik.errors.password}</Errors>}
-                <Link to="/recuperar-contrasena"><ForgotPassword>Olvidé mi contraseña</ForgotPassword></Link>
+                <Link to="/recover-password"><ForgotPassword>Olvidé mi contraseña</ForgotPassword></Link>
                 
                 {!adminLoginFormik.errors.password &&
                     !adminLoginFormik.errors.email &&

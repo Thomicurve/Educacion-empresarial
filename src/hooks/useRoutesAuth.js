@@ -7,17 +7,17 @@ const useRoutesAuth = (goTo) => {
     const { token } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const mustBeLogged = () => {
+    const isNotLogged = () => {
         if(!token) navigate(goTo);
         else return;
     }
 
-    const mustBeUnlogged = () => {
+    const isLogged = () => {
         if(token) navigate(goTo);
         else return;
     }
 
-    return {mustBeLogged, mustBeUnlogged};
+    return {isNotLogged, isLogged};
 };
 
 export default useRoutesAuth;

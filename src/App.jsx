@@ -15,9 +15,9 @@ const App = () => {
             <Router>
                 <GlobalStyle />
                 <Routes>
-                    <Route path="/nueva-contrasena" element={<NewPassword />} />
-                    <Route path="/recuperar-contrasena" element={<ForgotPassword />} />
-                    <Route path="/inicio" element={<Home />} />
+                    <Route path="/home/:section" element={<Home />} />
+                    <Route path="/new-password" element={<NewPassword />} />
+                    <Route path="/recover-password" element={<ForgotPassword />} />
                     <Route path="/"  element={<AdminLogin/>} /> 
                 </Routes>
             </Router>

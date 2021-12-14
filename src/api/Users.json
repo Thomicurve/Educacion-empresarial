@@ -1,0 +1,61 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "fullName": "Hernan Gomez",
+            "email": "hernan02@gmail.com",
+            "createdUser": 0,
+            "createdDate": "2021-12-13T14:37:00.097Z",
+            "updateUser": 0,
+            "updateDate": "2021-12-13T14:37:00.097Z",
+            "status": "string",
+            "roleId": "Admin",
+            "roleDescription": "string",
+            "modules": [
+                {
+                "description": "string",
+                "uri": "string",
+                "state": "string"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "fullName": "Lautaro Gonzalez",
+            "email": "lautarogonzalez@gmail.com",
+            "createdUser": 0,
+            "createdDate": "2021-10-23T14:37:00.097Z",
+            "updateUser": 0,
+            "updateDate": "2021-12-13T14:37:00.097Z",
+            "status": "string",
+            "roleId": "SúperAdmin",
+            "roleDescription": "string",
+            "modules": [
+                {
+                "description": "string",
+                "uri": "string",
+                "state": "string"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "fullName": "Thomas Curvelo",
+            "email": "curvelothomas08@gmail.com",
+            "createdUser": 0,
+            "createdDate": "2021-10-09T14:37:00.097Z",
+            "updateUser": 0,
+            "updateDate": "2021-12-13T14:37:00.097Z",
+            "status": "string",
+            "roleId": "Gestor",
+            "roleDescription": "string",
+            "modules": [
+                {
+                "description": "string",
+                "uri": "string",
+                "state": "string"
+                }
+            ]
+        }
+    ]
+}
