@@ -43,35 +43,35 @@ const LeftBar = () => {
         <NavContainer>
             <div>
                 <ul>
-                    <Link to='/home/Dashboard'>
-                        <LinksItems style={activeSections('/home/Dashboard')}>
-                            <img src={location.pathname == '/home/Dashboard' ? DashboardIconWhite : DashboardIcon} alt='Ícono del dashboad' />
+                    <Link to='/home/dashboard'>
+                        <LinksItems style={activeSections('/home/dashboard')}>
+                            <img src={location.pathname == '/home/dashboard' ? DashboardIconWhite : DashboardIcon} alt='Ícono del dashboad' />
                             <LinkText 
-                            style={{color: location.pathname == '/home/Dashboard' ? Colors.White_2 : Colors.C_2}}>Dashboard</LinkText>
+                            style={{color: location.pathname == '/home/dashboard' ? Colors.White_2 : Colors.C_2}}>Dashboard</LinkText>
                         </LinksItems>
                     </Link>
 
-                    <Link to='/home/Reportes'>
-                        <LinksItems style={activeSections('/home/Reportes')} >
-                            <img src={location.pathname == '/home/Reportes' ? ReportesIconWhite : ReportesIcon} alt='Ícono de reportes' />
+                    <Link to='/home/reports'>
+                        <LinksItems style={activeSections('/home/reports')} >
+                            <img src={location.pathname == '/home/reports' ? ReportesIconWhite : ReportesIcon} alt='Ícono de reportes' />
                             <LinkText 
-                            style={{color: location.pathname == '/home/Reportes' ? Colors.White_2 : Colors.C_2}}>Reportes</LinkText>
+                            style={{color: location.pathname == '/home/reports' ? Colors.White_2 : Colors.C_2}}>Reportes</LinkText>
                         </LinksItems>
                     </Link>
 
-                    <Link to='/home/Usuarios'>
-                        <LinksItems style={activeSections('/home/Usuarios')}>
-                            <img src={location.pathname == '/home/Usuarios' ? UsuariosIconWhite :  UsuariosIcon} alt='Ícono de usuarios' />
+                    <Link to='/home/users'>
+                        <LinksItems style={activeSections('/home/users')}>
+                            <img src={location.pathname == '/home/users' ? UsuariosIconWhite :  UsuariosIcon} alt='Ícono de usuarios' />
                             <LinkText 
-                            style={{color: location.pathname == '/home/Usuarios' ? Colors.White_2 : Colors.C_2}}>Usuarios</LinkText>
+                            style={{color: location.pathname == '/home/users' ? Colors.White_2 : Colors.C_2}}>Usuarios</LinkText>
                         </LinksItems>
                     </Link>
 
-                    <Link to='/home/Configuracion'>
-                        <LinksItems style={activeSections('/home/Configuracion')}>
-                            <img src={location.pathname == '/home/Configuracion' ? ConfigIconWhite : ConfigIcon} alt='Ícono de configuración' />
+                    <Link to='/home/configuration'>
+                        <LinksItems style={activeSections('/home/configuration')}>
+                            <img src={location.pathname == '/home/configuration' ? ConfigIconWhite : ConfigIcon} alt='Ícono de configuración' />
                             <LinkText 
-                            style={{color: location.pathname == '/home/Configuracion' ? Colors.White_2 : Colors.C_2}}>Configuración</LinkText>
+                            style={{color: location.pathname == '/home/configuration' ? Colors.White_2 : Colors.C_2}}>Configuración</LinkText>
                         </LinksItems>
                     </Link>
                 </ul>

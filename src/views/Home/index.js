@@ -9,9 +9,11 @@ import Navbar from '../../components/Navbar';
 import LeftBar from '../../components/LeftBar';
 import TopSectionBar from '../../components/TopSectionBar';
 
-const sections = ['Usuarios', 'Dashboard', 'Reportes', 'Configuracion']
+// Views
 
-const Home = () => {
+const sections = ['users', 'dashboard', 'reports', 'configuration']
+
+const Home = ({children}) => {
     const [users, setUsers] = useState([]);
     const { isNotLogged } = useRoutesAuth('/');
     const { section } = useParams();
@@ -19,7 +21,7 @@ const Home = () => {
 
     useEffect(() => {
         const currentRoute = sections.includes(section);
-        if(!currentRoute) return navigate('/home/Usuarios');
+        if(!currentRoute) return navigate('/home/users');
 
         isNotLogged();
         setUsers(Users.users);
@@ -30,10 +32,7 @@ const Home = () => {
             <Navbar/>
             <HomeContainer>
                 <LeftBar/>
-                <TopSectionBar currentSection={section}/>
-                <div>
-                    <h3>Todos los usuarios</h3>
-                </div>
+                {children}
             </HomeContainer>
         </main>
     )

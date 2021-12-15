@@ -7,7 +7,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import AdminLogin from './views/AdminLogin';
 import ForgotPassword from './views/ForgotPassword';
 import NewPassword from './views/NewPassword';
-import Home from './views/Home';
+import Users from './views/Users';
 
 const App = () => {
     return (
@@ -15,7 +15,7 @@ const App = () => {
             <Router>
                 <GlobalStyle />
                 <Routes>
-                    <Route path="/home/:section" element={<Home />} />
+                    <Route path="/home/:section" element={<Users />} />
                     <Route path="/new-password" element={<NewPassword />} />
                     <Route path="/recover-password" element={<ForgotPassword />} />
                     <Route path="/"  element={<AdminLogin/>} /> 
